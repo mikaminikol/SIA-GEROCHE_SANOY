@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Abstract Art Gallery</title>
+    <link rel="stylesheet" href="gallery.css"/> <!-- Link to external CSS file for styling -->
+</head>
+<body>
+    <div id="content"> <!-- Main content container -->
+        <h2 id="gallery-header">Abstract Art Gallery</h2> <!-- Gallery heading -->
+        <div id="art-exhibit"> <!-- Container for all artwork items -->
+            
+            <!-- Artwork items start here -->
+			<div>
+            <div id="artwork-1" class="artwork">
+                <div class="grey"><span class="boldy">Art 1</span><br> by Shilo</div> <!-- Artwork title and artist -->
+                <div class="heart1" onclick="toggleLike(this)"><img src="images/heart.png" class="tosmall"></div> <!-- Like button -->
+            </div>
+				<div class="comments-section"> <!-- Comment section -->
+                    <!--<ul class="comments-list"></ul> <!-- List to display comments -->
+                    <input type="text" class="comment-input" placeholder="Add a comment..."> <!-- Comment input field -->
+                    <button onclick="addComment(this)">Post</button> <!-- Button to add comment -->
+					
+					<ul class="comments-list"></ul>
+                </div>
+            </div>
+            
+            <!-- Similar structure for other artworks -->
+			<div>
+            <div id="artwork-2" class="artwork">
+                <div class="grey"><span class="boldy">Art 2</span><br> by Kenny</div>
+                <div class="heart1" onclick="toggleLike(this)"><img src="images/heart.png" class="tosmall"></div>
+             </div>
+				<div class="comments-section">
+                    <!--<ul class="comments-list"></ul>-->
+                    <input type="text" class="comment-input" placeholder="Add a comment...">
+                    <button onclick="addComment(this)">Post</button>
+					<ul class="comments-list"></ul>
+                </div>
+            </div>
+			
+            <div>
+            <div id="artwork-3" class="artwork">
+                <div class="grey"><span class="boldy">Art 3</span><br> by Blissy</div>
+                <div class="heart1" onclick="toggleLike(this)"><img src="images/heart.png" class="tosmall"></div>
+            </div>
+				<div class="comments-section">
+                    <!--<ul class="comments-list"></ul>-->
+                    <input type="text" class="comment-input" placeholder="Add a comment...">
+                    <button onclick="addComment(this)">Post</button>
+					<ul class="comments-list"></ul>
+                </div>
+            </div>
+            
+			<div>
+            <div id="artwork-4" class="artwork">
+                <div class="grey"><span class="boldy">Art 4</span><br> by Mirah</div>
+                <div class="heart1" onclick="toggleLike(this)"><img src="images/heart.png" class="tosmall"></div>
+            </div>
+				<div class="comments-section">
+                    <!--<ul class="comments-list"></ul>-->
+                    <input type="text" class="comment-input" placeholder="Add a comment...">
+                    <button onclick="addComment(this)">Post</button>
+					<ul class="comments-list"></ul>
+                </div>
+            </div>
+            
+			<div>
+            <div id="artwork-5" class="artwork">
+                <div class="grey"><span class="boldy">Art 5</span><br> by Miru</div>
+                <div class="heart1" onclick="toggleLike(this)"><img src="images/heart.png" class="tosmall"></div>
+            </div>
+				<div class="comments-section">
+                    <!--<ul class="comments-list"></ul>-->
+                    <input type="text" class="comment-input" placeholder="Add a comment...">
+                    <button onclick="addComment(this)">Post</button>
+					<ul class="comments-list"></ul>
+                </div>
+            </div>
+            
+			<div>
+            <div id="artwork-6" class="artwork">
+                <div class="grey"><span class="boldy">Art 6</span><br> by Toggler</div>
+                <div class="heart1" onclick="toggleLike(this)"><img src="images/heart.png" class="tosmall"></div>
+            </div>
+				<div class="comments-section">
+                    <!--<ul class="comments-list"></ul>-->
+                    <input type="text" class="comment-input" placeholder="Add a comment...">
+                    <button onclick="addComment(this)">Post</button>
+					<ul class="comments-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle the heart icon color
+        function toggleLike(element) {
+            let heartImg = element.querySelector("img"); // Get the image inside the clicked heart div
+			//heartImg.classList.toggle("liked");
+			element.classList.toggle("liked");
+			
+            /*if (heartImg.style.filter === "grayscale(100%)") {
+			
+                //heartImg.style.filter = "brightness(0) saturate(100%) invert(13%) sepia(94%) saturate(7494%) hue-rotate(357deg) brightness(97%) contrast(108%)"; // Change to red (default color)
+            } else {
+                heartImg.style.filter = "grayscale(100%)"; // Change back to grayscale
+            }*/
+        }
+
+        // Function to add comments
+        function addComment(button) {
+            let commentInput = button.previousElementSibling; // Get the input field
+            let commentText = commentInput.value.trim(); // Trim whitespace from input
+            if (commentText !== "") { // Check if input is not empty
+                let commentList = button.parentElement.querySelector(".comments-list"); // Get the comments list
+                let newComment = document.createElement("li"); // Create a new list item for the comment
+                newComment.textContent = commentText; // Set the text of the new comment
+                commentList.appendChild(newComment); // Append the comment to the list
+                commentInput.value = ""; // Clear the input field after posting
+            }
+        }
+    </script>
+</body>
+</html>
+
+<style>
+body {
+    margin: 0px;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+}
+
+#content {
+    width: 1000px;
+    padding-bottom: 50px;
+}
+
+#gallery-header {
+    text-align: center;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 20px;
+}
+
+#art-exhibit {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.artwork {
+    width: 300px;
+    height: 350px;
+    background-color: #efefef;
+    margin-top: 30px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#artwork-1 {
+    background-image: url('images/a.jpg');
+}
+
+#artwork-2 {
+    background-image: url('images/b.png');
+}
+
+#artwork-3 {
+    background-image: url('images/c.jpg');
+}
+
+#artwork-4 {
+    background-image: url('images/d.jpg');
+}
+
+#artwork-5 {
+    background-image: url('images/e.jpg');
+}
+
+#artwork-6 {
+    background-image: url('images/f.jpg');
+}
+
+.heart1 {
+    background-color: #EEF1F2;
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -40px;
+    left: 240px; 
+    z-index: 5;
+    border-radius: 50%;
+    line-height: 68px;
+    text-align: center;
+}
+
+.heart1 img {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease-in-out;
+}
+
+
+/*.heart1 img.liked {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(97%) saturate(7489%) hue-rotate(357deg) brightness(98%) contrast(109%);
+	
+}*/
+
+.heart1.liked{background-color: #D9534F;}
+
+
+.tosmall{
+width: 28px;
+height: 28px;
+}
+
+.heart1:hover{
+background-color: #A3ACE4;
+cursor: pointer;
+}
+
+.comments-section{
+padding-top:15px;
+}
+
+.grey{
+background-color: #EFEFEF;
+position: relative;
+width: 300px;
+height: 50px;  
+top: 300px;
+left:0px;
+z-index: 6;  
+opacity: 80%;
+text-align: center;
+line-height: 25px;
+}
+
+.boldy {
+font-weight: bold;
+}
+
+</style>
