@@ -1,0 +1,50 @@
+   :root {
+            --tab-bg: #af4d98;
+            --tab-bg2: #d66ba0;
+            --tab-bg3: #e5a9a9;
+            --tab-active-bg: #ffffff;
+            --tab-text: #ffffff;
+            --tab-text-active: #000000;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fafafa;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: #ffcadb;
+            border-bottom: 3px solid #ff4861;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: var(--tab-bg);
+            color: var(--tab-text);
+            border-radius: 6px 6px 0 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .tab:nth-child(2) { background: var(--tab-bg2); }
+        .tab:nth-child(3) { background: var(--tab-bg3); }
+
+        .tab:hover {
+            opacity: 0.85;
+        }
+
+        .active {
+            background: var(--tab-active-bg) !important;
+            color: var(--tab-text-active) !important;
+            border: 2px solid #000;
+            border-bottom: none;
+        }
+
+        .content {
+            padding: 2rem;
+        }
